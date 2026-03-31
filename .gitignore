@@ -1,0 +1,31 @@
+# Compiled code
+target/
+*.class
+
+# Logs
+*.log
+logs/
+
+# IDE files
+.idea/
+*.iml
+.settings/
+.project
+.classpath
+.vscode/
+
+# Spring Boot specific
+application-local.properties
+application-dev.properties
+
+# Maven wrapper (optional)
+.mvn/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Misc
+*.lock
+*.swp
+*~
