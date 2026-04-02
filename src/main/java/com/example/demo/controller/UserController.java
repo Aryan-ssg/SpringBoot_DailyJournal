@@ -45,8 +45,9 @@ public class UserController {
             userInDb.setUsername(user.getUsername());
             userInDb.setPassword(user.getPassword());
             userService.saveEntry(userInDb);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
     }
 }
