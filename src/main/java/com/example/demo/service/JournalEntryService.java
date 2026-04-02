@@ -6,8 +6,6 @@ import java.util.Optional;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,19 +24,14 @@ public class JournalEntryService {
 
     @Transactional
     public void saveEntry(JournalEntry journalEntry, String userName) {
-        try {
-            journalEntry.setDate(LocalDateTime.now());
-            User user = userService.findByUsername(userName);
-            if (user == null) {
-                throw new RuntimeException("User not found: " + userName);
-            }
-            JournalEntry saved = journalEntryRepository.save(journalEntry);
-            user.getJournalEntries().add(saved);
-            userService.saveEntry(user);
-        } catch (Exception e) {
-            throw new RuntimeException("An error has occured", e);
+        journalEntry.setDate(LocalDateTime.now());
+        User user = userService.findByUsername(userName);
+        if (user == null) {
+            throw new IllegalArgumentException("User not found: " + userName);
         }
-
+        JournalEntry saved = journalEntryRepository.save(journalEntry);
+        user.getJournalEntries().add(saved);
+        userService.saveEntry(user);
     }
 
     public List<JournalEntry> getAll() {
