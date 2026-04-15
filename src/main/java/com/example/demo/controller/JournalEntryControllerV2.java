@@ -87,8 +87,8 @@ public class JournalEntryControllerV2 {
             @PathVariable String username) {
         Optional<JournalEntry> journalEntry = journalEntryService.findById(myId);
         if (journalEntry.isPresent()) {
-            journalEntryService.updateById(myId, myEntry);
-            return new ResponseEntity<>(journalEntry.get(), HttpStatus.OK);
+            JournalEntry updated = journalEntryService.updateById(myId, myEntry);
+            return new ResponseEntity<>(updated, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 

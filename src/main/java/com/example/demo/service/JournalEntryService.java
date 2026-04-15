@@ -6,8 +6,6 @@ import java.util.Optional;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -51,8 +49,12 @@ public class JournalEntryService {
 
     }
 
+    @Transactional
     public void deleteById(ObjectId id, String username) {
         User user = userService.findByUsername(username);
+        if (user == null) {
+            throw new RuntimeException("User not found: " + username);
+        }
         user.getJournalEntries().removeIf(x -> x.getId().equals(id));
         userService.saveEntry(user);
         journalEntryRepository.deleteById(id);
@@ -63,10 +65,9 @@ public class JournalEntryService {
         if (oldEntry != null) {
             oldEntry.setContent(newEntry.getContent() != null ? newEntry.getContent() : oldEntry.getContent());
             oldEntry.setTitle(newEntry.getTitle() != null ? newEntry.getTitle() : oldEntry.getTitle());
+            journalEntryRepository.save(oldEntry);
         }
-        journalEntryRepository.save(oldEntry);
         return oldEntry;
-
     }
 
 }
