@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.aryan.dailyjournal.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -11,9 +11,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.demo.Repository.JournalEntryRepository;
-import com.example.demo.entity.JournalEntry;
-import com.example.demo.entity.User;
+import com.aryan.dailyjournal.Repository.JournalEntryRepository;
+import com.aryan.dailyjournal.entity.JournalEntry;
+import com.aryan.dailyjournal.entity.User;
 
 @Component
 public class JournalEntryService {

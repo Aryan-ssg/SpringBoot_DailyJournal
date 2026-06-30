@@ -1,4 +1,4 @@
-package com.example.demo.entity;
+package com.aryan.dailyjournal.entity;
 
 import java.util.ArrayList;
 import java.util.List;

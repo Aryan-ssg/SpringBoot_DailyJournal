@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.aryan.dailyjournal.service;
 
 // import java.time.LocalDateTime;
 import java.util.List;
@@ -8,10 +8,8 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-
-import com.example.demo.Repository.UserRepository;
-
-import com.example.demo.entity.User;
+import com.aryan.dailyjournal.Repository.UserRepository;
+import com.aryan.dailyjournal.entity.User;
 
 @Component
 public class UserService {

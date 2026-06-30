@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.aryan.dailyjournal.controller;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.entity.JournalEntry;
-import com.example.demo.entity.User;
-import com.example.demo.service.JournalEntryService;
-import com.example.demo.service.UserService;
+import com.aryan.dailyjournal.entity.JournalEntry;
+import com.aryan.dailyjournal.entity.User;
+import com.aryan.dailyjournal.service.JournalEntryService;
+import com.aryan.dailyjournal.service.UserService;
 
 @RestController
 @RequestMapping("/user")
